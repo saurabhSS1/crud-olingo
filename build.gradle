@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.2'
-    id 'io.spring.dependency-management' version '1.1.6'
+    id 'org.springframework.boot' version '2.7.0'  // Using an older version for javax.servlet compatibility
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group = 'com.example'
@@ -18,11 +18,19 @@ repositories {
 }
 
 dependencies {
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation 'org.apache.olingo:odata-server-core:4.7.0'
+    implementation 'org.apache.olingo:odata-commons-api:4.9.0'
+    implementation 'org.apache.olingo:odata-commons-core:4.9.0'
+    implementation 'org.apache.olingo:odata-client-core:4.9.0'
+    //implementation 'org.apache.olingo:olingo-odata4-core:4.7.1'
+    //implementation 'org.apache.olingo:olingo-odata4-server-core:4.7.1'
 }
 
 tasks.named('test') {
